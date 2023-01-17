@@ -1,0 +1,29 @@
+{% load static %}
+
+<html>
+
+    <head>
+        <title></title>
+
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    </head>
+
+    <body>
+
+        <div id="processes">
+            {% for pid, pname in processes.items %}
+                <div class="process">
+                    <span class="title">
+                        {{ pid }} : {{ pname }}
+                    </span>
+
+                    <span class="button">
+                        <a href="{% url 'pkill' pid=pid%}"><input type="button" id="{{ pid }}" value="KILL"></a>
+                    </span>
+                </div><br>
+            {% endfor %}
+        </div>
+
+    </body>
+
+</html>
